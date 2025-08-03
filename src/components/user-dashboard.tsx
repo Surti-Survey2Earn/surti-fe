@@ -79,38 +79,35 @@ export function UserDashboard() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Header */}
-      <header className="bg-white dark:bg-gray-800 border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <h1 className="text-2xl font-bold">Dashboard</h1>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Badge variant="outline" className="flex items-center gap-1 w-fit">
-                <Coins className="w-4 h-4" />
-                {mockUserData.tokenBalance} S2E
-              </Badge>
-              <Button onClick={() => router.push("/create-survey")} className="w-full sm:w-auto">
-                <Plus className="w-4 h-4 mr-2" />
-                Create Survey
-              </Button>
-            </div>
+      <div className="container mx-auto px-4 py-12">
+        <div className="mt-25 flex flex-col items-center justify-center text-center gap-4 sm:flex-row">
+          <h1 className="text-2xl font-bold">Dashboard</h1>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <Badge variant="outline" className="flex items-center gap-1 w-fit">
+              <Coins className="w-4 h-4" />
+              {mockUserData.tokenBalance} LSK
+            </Badge>
+            <Button onClick={() => router.push("/create-survey")} className="w-full sm:w-auto cursor-pointer">
+              <Plus className="w-4 h-4 mr-2" />
+              Create Survey
+            </Button>
           </div>
         </div>
-      </header>
+      </div>
 
       <div className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4">
-            <TabsTrigger value="overview" className="text-xs sm:text-sm">
+            <TabsTrigger value="overview" className="text-xs sm:text-sm transition-all hover:bg-blue-100 dark:hover:bg-zinc-700 hover:scale-105 rounded-md cursor-pointer">
               Overview
             </TabsTrigger>
-            <TabsTrigger value="surveys" className="text-xs sm:text-sm">
+            <TabsTrigger value="surveys" className="text-xs sm:text-sm transition-all hover:bg-blue-100 dark:hover:bg-zinc-700 hover:scale-105 rounded-md cursor-pointer">
               Surveys
             </TabsTrigger>
-            <TabsTrigger value="achievements" className="text-xs sm:text-sm">
+            <TabsTrigger value="achievements" className="text-xs sm:text-sm transition-all hover:bg-blue-100 dark:hover:bg-zinc-700 hover:scale-105 rounded-md cursor-pointer">
               Achievements
             </TabsTrigger>
-            <TabsTrigger value="analytics" className="text-xs sm:text-sm">
+            <TabsTrigger value="analytics" className="text-xs sm:text-sm transition-all hover:bg-blue-100 dark:hover:bg-zinc-700 hover:scale-105 rounded-md cursor-pointer">
               Analytics
             </TabsTrigger>
           </TabsList>
@@ -194,7 +191,7 @@ export function UserDashboard() {
                           {survey.status}
                         </Badge>
                         <span className="font-medium flex items-center gap-1">
-                          <Coins className="w-4 h-4" /> {survey.reward} S2E
+                          <Coins className="w-4 h-4" /> {survey.reward} LSK
                         </span>
                         <span className="font-medium flex items-center gap-1">
                           <Star className="w-4 h-4" /> {survey.xpReward} XP
@@ -236,7 +233,7 @@ export function UserDashboard() {
                       <div className="text-left sm:text-right">
                         <div className="flex items-center gap-2">
                           <div className="text-xl font-bold text-green-600 flex items-center gap-1">
-                            <Coins className="w-5 h-5" /> {survey.reward} S2E
+                            <Coins className="w-5 h-5" /> {survey.reward} LSK
                           </div>
                           <div className="text-xl font-bold text-purple-600 flex items-center gap-1">
                             <Star className="w-5 h-5" /> {survey.xpReward} XP

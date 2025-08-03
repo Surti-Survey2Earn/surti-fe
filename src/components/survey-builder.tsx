@@ -303,14 +303,23 @@ export function SurveyBuilder() {
 
   const handleSaveDraft = () => {
     // In a real app, save to database
-    const surveyToSave = { ...survey, status: "draft", id: survey.id || `survey-${Date.now()}` }
-    const existingIndex = mockUserCreatedSurveys.findIndex((s) => s.id === surveyToSave.id)
+    const surveyToSave = {
+      ...survey,
+      status: "draft",
+      id: survey.id || `survey-${Date.now()}`
+    }
+
+    const existingIndex = mockUserCreatedSurveys.findIndex(
+      (s) => s.id === surveyToSave.id
+    )
+
     if (existingIndex > -1) {
       mockUserCreatedSurveys[existingIndex] = surveyToSave
     } else {
       mockUserCreatedSurveys.push(surveyToSave)
     }
-    setSurvey(surveyToSave) // Update state with new ID if it was a new survey
+
+    setSurvey(surveyToSave)
     toast({
       title: "Survey Saved as Draft!",
       description: "Your survey has been saved and can be edited later.",
@@ -331,8 +340,8 @@ export function SurveyBuilder() {
       createdAt: new Date().toISOString().split("T")[0],
     }
     const existingIndex = mockUserCreatedSurveys.findIndex((s) => s.id === surveyToPublish.id)
-    if (existingSurvey) {
-      setSurvey(existingSurvey as Survey)
+    if (existingIndex > -1) {
+      mockUserCreatedSurveys[existingIndex] = surveyToPublish
     } else {
       mockUserCreatedSurveys.push(surveyToPublish)
     }
@@ -349,15 +358,19 @@ export function SurveyBuilder() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <header className="bg-white dark:bg-gray-800 border-b">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">{surveyId ? "Edit Survey" : "Create New Survey"}</h1>
-          <Button variant="outline" onClick={() => router.push("/my-surveys")}>
-            <ListChecks className="w-4 h-4 mr-2" />
-            My Surveys
-          </Button>
+      <div className="container mx-auto px-4 py-4 relative flex items-center justify-center">
+        <div className="mt-20">
+          <h1 className="text-2xl font-bold text-center">
+            {surveyId ? "Edit Survey" : "Create New Survey"}
+          </h1>
+          <div className="absolute right-4 center">
+            <Button variant="outline" onClick={() => router.push("/my-surveys")}>
+              <ListChecks className="w-4 h-4 mr-2" />
+              My Surveys
+            </Button>
+          </div>
         </div>
-      </header>
+      </div>
 
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 sm:gap-8">

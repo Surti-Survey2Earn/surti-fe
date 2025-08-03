@@ -58,9 +58,14 @@ export function ConnectButton() {
             {(() => {
               if (!connected) {
                 return (
-                  <Button onClick={openConnectModal} type="button">
+                  <Button
+                    onClick={openConnectModal}
+                    type="button"
+                    className="rounded-full cursor-pointer bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-semibold px-6 py-3 transition-all duration-300 ease-in-out shadow hover:brightness-110 hover:shadow-lg dark:from-indigo-400 dark:to-pink-400"
+                  >
                     Connect Wallet
                   </Button>
+
                 );
               }
 

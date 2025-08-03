@@ -130,11 +130,12 @@ export function AdminDashboard() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-800 border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+      <div className="container mx-auto px-4 py-4">
+        <div className="mt-20">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
             <h1 className="text-xl sm:text-2xl font-bold">Admin Dashboard</h1>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               <Badge variant="outline" className="flex items-center gap-1">
                 <Shield className="w-4 h-4" />
                 Administrator
@@ -142,7 +143,8 @@ export function AdminDashboard() {
             </div>
           </div>
         </div>
-      </header>
+      </div>
+
 
       <div className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab}>

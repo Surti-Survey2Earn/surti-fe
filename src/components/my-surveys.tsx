@@ -137,15 +137,17 @@ export function MySurveys() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <header className="bg-white dark:bg-gray-800 border-b">
-        <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="container mx-auto px-4 py-4 flex flex-col items-center justify-center gap-4 text-center">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-center gap-4 mt-20">
           <h1 className="text-2xl font-bold">My Surveys</h1>
           <Button onClick={() => router.push("/create-survey")}>
             <Plus className="w-4 h-4 mr-2" />
             Create New Survey
           </Button>
         </div>
-      </header>
+
+      </div>
+
 
       <div className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab}>
