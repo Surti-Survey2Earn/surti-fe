@@ -21,7 +21,7 @@ import {
   Shield,
   Coins,
 } from "lucide-react"
-import { formatNumberClientOnly } from "@/lib/format-client-only" // Import the new helper
+import { formatNumberClientOnly } from "../lib/format-client-only" // Import the new helper
 
 // Mock data
 const mockStats = {

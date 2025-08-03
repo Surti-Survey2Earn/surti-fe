@@ -19,9 +19,9 @@ import {
   FileText,
   Plus,
 } from "lucide-react"
-import { useAccount } from "@/app/providers" // Import useAccount from wagmi
+import { useAccount } from "wagmi" // Import useAccount from providers
 
-export function LandingPage() {
+export default function LandingPage() {
   const { isConnected } = useAccount() // Use isConnected from wagmi
   const router = useRouter()
 

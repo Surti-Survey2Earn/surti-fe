@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useRouter } from "next/navigation"
 import { Coins, Trophy, Star, TrendingUp, Clock, CheckCircle, Plus, BarChart3, Users, Gift } from "lucide-react"
-import { useAccount } from "@/app/providers" // Import useAccount from wagmi
+import { useAccount } from "wagmi" // Import useAccount from providers
 
 // Mock data
 const mockUserData = {
@@ -29,7 +29,7 @@ const mockSurveys = [
     id: 1,
     title: "DeFi User Experience Research",
     reward: 50,
-    xpReward: 150, // Added XP reward
+    xpReward: 150,
     timeEstimate: "5-10 min",
     category: "DeFi",
     status: "available",
@@ -40,7 +40,7 @@ const mockSurveys = [
     id: 2,
     title: "NFT Market Sentiment Analysis",
     reward: 75,
-    xpReward: 200, // Added XP reward
+    xpReward: 200,
     timeEstimate: "10-15 min",
     category: "NFT",
     status: "available",
@@ -51,7 +51,7 @@ const mockSurveys = [
     id: 3,
     title: "Web3 Gaming Preferences",
     reward: 100,
-    xpReward: 250, // Added XP reward
+    xpReward: 250,
     timeEstimate: "15-20 min",
     category: "Gaming",
     status: "completed",
@@ -275,9 +275,8 @@ export function UserDashboard() {
                   <CardHeader>
                     <div className="flex items-center gap-3">
                       <div
-                        className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                          achievement.earned ? "bg-green-500" : "bg-gray-300"
-                        }`}
+                        className={`w-12 h-12 rounded-full flex items-center justify-center ${achievement.earned ? "bg-green-500" : "bg-gray-300"
+                          }`}
                       >
                         <Trophy className={`w-6 h-6 ${achievement.earned ? "text-white" : "text-gray-500"}`} />
                       </div>

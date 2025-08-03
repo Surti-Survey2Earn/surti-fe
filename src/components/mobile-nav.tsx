@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useRouter } from "next/navigation"
 import { Menu, Home, FileText, Plus, BarChart3, Settings, Zap, ListChecks } from "lucide-react"
-import { useAccount } from "@/app/providers" // Import useAccount from wagmi
+import { useAccount } from "wagmi" // Import directly from wagmi
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
@@ -15,7 +15,7 @@ export function MobileNav() {
   const navItems = [
     { icon: Home, label: "Dashboard", href: "/dashboard", requiresAuth: true },
     { icon: FileText, label: "Surveys", href: "/surveys", requiresAuth: false },
-    { icon: ListChecks, label: "My Surveys", href: "/my-surveys", requiresAuth: true }, // New link
+    { icon: ListChecks, label: "My Surveys", href: "/my-surveys", requiresAuth: true },
     { icon: Plus, label: "Create Survey", href: "/create-survey", requiresAuth: true },
     { icon: BarChart3, label: "Analytics", href: "/analytics", requiresAuth: true },
     { icon: Settings, label: "Admin", href: "/admin", requiresAuth: true },
