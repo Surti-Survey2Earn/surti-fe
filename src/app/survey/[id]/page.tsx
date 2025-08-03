@@ -1,6 +1,11 @@
 import { SurveyTaking } from "@/components/survey-taking"
 
-export default function SurveyPage({ params }: { params: { id: string } }) {
-  return <SurveyTaking surveyId={params.id} />
+type SurveyPageProps = {
+  params: {
+    id: string
+  }
 }
 
+export default function SurveyPage({ params }: SurveyPageProps) {
+  return <SurveyTaking surveyId={params.id} />
+}
