@@ -1,11 +1,12 @@
 import { SurveyTaking } from "@/components/survey-taking"
 
 type SurveyPageProps = {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
-export default function SurveyPage({ params }: SurveyPageProps) {
-  return <SurveyTaking surveyId={params.id} />
+export default async function SurveyPage({ params }: SurveyPageProps) {
+  const { id } = await params
+  return <SurveyTaking surveyId={id} />
 }

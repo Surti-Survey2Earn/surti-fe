@@ -303,9 +303,9 @@ export function SurveyBuilder() {
 
   const handleSaveDraft = () => {
     // In a real app, save to database
-    const surveyToSave = {
+    const surveyToSave: Survey = {
       ...survey,
-      status: "draft",
+      status: "draft" as const, // Type assertion yang tepat
       id: survey.id || `survey-${Date.now()}`
     }
 
@@ -333,9 +333,9 @@ export function SurveyBuilder() {
     }
 
     // Mock publish logic
-    const surveyToPublish = {
+    const surveyToPublish: Survey = {
       ...survey,
-      status: "published",
+      status: "published" as const, // Type assertion yang tepat
       id: survey.id || `survey-${Date.now()}`,
       createdAt: new Date().toISOString().split("T")[0],
     }
