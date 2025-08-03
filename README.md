@@ -1,4 +1,3 @@
-Berikut README yang sudah digabung dan dirapikan agar lebih jelas, profesional, dan relevan dengan proyek **Surti - Survey2Earn** yang menggunakan **Next.js, Tailwind CSS, dan Web3 (RainbowKit)**:
 
 ---
 
