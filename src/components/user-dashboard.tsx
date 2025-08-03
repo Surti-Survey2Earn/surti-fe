@@ -73,7 +73,7 @@ export function UserDashboard() {
   const [activeTab, setActiveTab] = useState("overview")
 
   if (!isConnected) {
-    router.push("/")
+    router.push("/home")
     return null
   }
 
