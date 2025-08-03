@@ -3,7 +3,6 @@ import "@rainbow-me/rainbowkit/styles.css";
 import "@/styles/globals.css";
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider"
 
 import Providers from "../components/provider/rainbow-provider";
 
@@ -23,16 +22,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geist.variable}`}>
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange>
-          <Providers>
-            {children}
-          </Providers>
-        </ThemeProvider>
+      <body suppressHydrationWarning>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

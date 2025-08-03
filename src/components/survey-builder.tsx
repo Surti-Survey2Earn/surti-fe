@@ -331,8 +331,8 @@ export function SurveyBuilder() {
       createdAt: new Date().toISOString().split("T")[0],
     }
     const existingIndex = mockUserCreatedSurveys.findIndex((s) => s.id === surveyToPublish.id)
-    if (existingIndex > -1) {
-      mockUserCreatedSurveys[existingIndex] = surveyToPublish
+    if (existingSurvey) {
+      setSurvey(existingSurvey as Survey)
     } else {
       mockUserCreatedSurveys.push(surveyToPublish)
     }
