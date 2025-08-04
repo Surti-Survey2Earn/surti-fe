@@ -1,4 +1,3 @@
-
 import "@rainbow-me/rainbowkit/styles.css";
 import "@/styles/globals.css";
 import { type Metadata } from "next";
@@ -12,7 +11,6 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/surti.svg" }],
 };
 
-
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist-sans",
@@ -24,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${geist.variable}`}>
       <body suppressHydrationWarning>
-        <Providers>
-          <HeroHeader />
-          {children}
-        </Providers>
+          <Providers>
+            <HeroHeader />
+            {children}
+          </Providers>
       </body>
     </html>
   );

@@ -4,17 +4,17 @@ import { motion } from "framer-motion"
 
 export default function AnimatedBackground() {
   return (
-    <div className="relative w-full h-screen overflow-hidden size-full object-cover opacity-50 invert dark:opacity-10 dark:invert-0 dark:lg:opacity-75">
+    <div className="relative w-full h-screen overflow-hidden object-cover opacity-50 dark:opacity-50">
       {/* Main animated gradient background */}
       <motion.div
         className="absolute inset-0"
         initial={{ backgroundPosition: "0% 0%" }}
         animate={{ backgroundPosition: "100% 100%" }}
         transition={{
-          duration: 25, // Slower animation for a subtle flow
+          duration: 25, 
           ease: "linear",
           repeat: Number.POSITIVE_INFINITY,
-          repeatType: "reverse", // Animates back and forth
+          repeatType: "reverse",
         }}
         style={{
           background: `radial-gradient(

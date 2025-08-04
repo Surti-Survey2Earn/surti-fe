@@ -13,9 +13,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",                            // Wajib agar "paths" aktif
+    "baseUrl": ".",                         
     "paths": {
-      "@/*": ["src/*"]                     // Alias @ menuju src/app/
+      "@/*": ["src/*"]
     },
     "plugins": [
       {

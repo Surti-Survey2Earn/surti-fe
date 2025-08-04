@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils'
 import { ConnectButton } from './connect-button'
 
 const menuItems = [
+    { name: 'Home', href: '/home' },
     { name: 'Features', href: '#whyChoose' },
     { name: 'How it Work', href: '#link' },
     { name: 'Pricing', href: '#link' },
@@ -43,7 +44,6 @@ export const HeroHeader = () => {
                                 className="flex items-center space-x-2">
                                 <Logo />
                             </Link>
-
                             <button
                                 onClick={() => setMenuState(!menuState)}
                                 aria-label={menuState == true ? 'Close Menu' : 'Open Menu'}
@@ -51,7 +51,6 @@ export const HeroHeader = () => {
                                 <Menu className="in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0 m-auto size-6 duration-200" />
                                 <X className="in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200" />
                             </button>
-
                             <div className="hidden lg:block">
                                 <ul className="flex gap-8 text-sm">
                                     {menuItems.map((item, index) => (

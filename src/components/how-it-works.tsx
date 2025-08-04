@@ -17,9 +17,6 @@ import {
 export default function HowItWorks() {
 
     return (
-
-
-
         <section className="py-20 px-4 bg-white/50 dark:bg-gray-800/50">
             <div className="container mx-auto">
                 <div className="text-center mb-16">
@@ -28,7 +25,6 @@ export default function HowItWorks() {
                         Simple steps to start earning tokens through surveys on the blockchain
                     </p>
                 </div>
-
                 {/* Process Steps */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
                     {/* For Survey Participants */}
@@ -39,7 +35,6 @@ export default function HowItWorks() {
                             </div>
                             <h3 className="text-2xl font-bold">For Survey Participants</h3>
                         </div>
-
                         <div className="space-y-6">
                             <div className="flex gap-4">
                                 <div className="flex-shrink-0 w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
