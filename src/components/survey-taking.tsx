@@ -266,7 +266,7 @@ export function SurveyTaking({ surveyId }: SurveyTakingProps) {
                   </span>
                   <span className="flex items-center gap-1">
                     <Coins className="w-4 h-4" />
-                    {survey.reward} S2E
+                    {survey.reward} LSK
                   </span>
                   <span className="flex items-center gap-1">
                     <Star className="w-4 h-4" />

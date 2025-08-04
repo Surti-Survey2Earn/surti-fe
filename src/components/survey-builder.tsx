@@ -11,7 +11,6 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useToast } from "@/hooks/use-toast"
 import { useRouter, useSearchParams } from "next/navigation"
-
 import {
   Plus,
   Trash2,
@@ -164,7 +163,7 @@ export function SurveyBuilder() {
   const { toast } = useToast()
   const router = useRouter()
   const searchParams = useSearchParams()
-  const surveyId = searchParams.get("type")
+  const surveyId = searchParams.get("id")
 
   const [activeTab, setActiveTab] = useState("basic")
   const [survey, setSurvey] = useState<Survey>({
@@ -173,7 +172,7 @@ export function SurveyBuilder() {
     category: "",
     estimatedTime: "",
     rewardAmount: 0,
-    maxParticipants: 100,
+    maxParticipants: 0,
     questions: [],
     xpReward: 0, // Default XP reward
     status: "draft", // Default status
@@ -608,15 +607,25 @@ export function SurveyBuilder() {
                   <CardContent className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="reward">Reward per Response (S2E)</Label>
+                        <Label htmlFor="reward">Reward per Response (LSK)</Label>
                         <Input
                           id="reward"
                           type="number"
-                          value={survey.rewardAmount}
-                          onChange={(e) =>
-                            setSurvey((prev) => ({ ...prev, rewardAmount: Number.parseFloat(e.target.value) || 0 }))
-                          }
-                          placeholder="0"
+                          value={survey.rewardAmount == 0 ? "" : survey.rewardAmount}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            if (value == "") {
+                              setSurvey((prev) => ({ ...prev, rewardAmount: 0 }));
+                            } else {
+                              const numValue = Number.parseFloat(value);
+                              if (!isNaN(numValue) && numValue >= 0) {
+                                setSurvey((prev) => ({ ...prev, rewardAmount: numValue }))
+                              }
+                            }
+                          }}
+                          placeholder="Enter reward Amount"
+                          min="0"
+                          step="0.01"
                         />
                       </div>
 
@@ -625,11 +634,21 @@ export function SurveyBuilder() {
                         <Input
                           id="xp-reward"
                           type="number"
-                          value={survey.xpReward}
-                          onChange={(e) =>
-                            setSurvey((prev) => ({ ...prev, xpReward: Number.parseInt(e.target.value) || 0 }))
-                          }
-                          placeholder="0"
+                          value={survey.xpReward == 0 ? "" : survey.xpReward}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            if (value == "") {
+                              setSurvey((prev) => ({ ...prev, xpReward: 0 }));
+                            } else {
+                              const numValue = Number.parseFloat(value);
+                              if (!isNaN(numValue) && numValue >= 0) {
+                                setSurvey((prev) => ({ ...prev, xpReward: numValue }))
+                              }
+                            }
+                          }}
+                          placeholder="Enter reward Amount"
+                          min="0"
+                          step="0.01"
                         />
                       </div>
                     </div>
@@ -639,11 +658,20 @@ export function SurveyBuilder() {
                       <Input
                         id="participants"
                         type="number"
-                        value={survey.maxParticipants}
-                        onChange={(e) =>
-                          setSurvey((prev) => ({ ...prev, maxParticipants: Number.parseInt(e.target.value) || 100 }))
-                        }
-                        placeholder="100"
+                        value={survey.maxParticipants === 0 ? "" : survey.maxParticipants}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          if (value === "") {
+                            setSurvey((prev) => ({ ...prev, maxParticipants: 0 }));
+                          } else {
+                            const numValue = Number.parseInt(value);
+                            if (!isNaN(numValue) && numValue > 0) {
+                              setSurvey((prev) => ({ ...prev, maxParticipants: numValue }));
+                            }
+                          }
+                        }}
+                        placeholder="Enter max participants"
+                        min="1"
                       />
                     </div>
 
@@ -652,7 +680,7 @@ export function SurveyBuilder() {
                       <div className="space-y-1 text-sm">
                         <div className="flex justify-between">
                           <span>Reward per response:</span>
-                          <span>{survey.rewardAmount} S2E</span>
+                          <span>{survey.rewardAmount} LSK</span>
                         </div>
                         <div className="flex justify-between">
                           <span>XP per response:</span>
@@ -663,8 +691,8 @@ export function SurveyBuilder() {
                           <span>{survey.maxParticipants}</span>
                         </div>
                         <div className="flex justify-between font-medium border-t pt-1">
-                          <span>Total S2E cost:</span>
-                          <span>{estimatedCost} S2E</span>
+                          <span>Total LSK cost:</span>
+                          <span>{estimatedCost} LSK</span>
                         </div>
                       </div>
                     </div>
@@ -692,7 +720,7 @@ export function SurveyBuilder() {
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Coins className="w-4 h-4" />
-                    <span>{survey.rewardAmount} S2E reward</span>
+                    <span>{survey.rewardAmount} LSK reward</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Star className="w-4 h-4" />
@@ -734,7 +762,7 @@ export function SurveyBuilder() {
                 )}
                 {survey.status === "draft" && (
                   <p className="text-xs text-gray-500 mt-2 text-center">
-                    Make sure to fund your survey with {estimatedCost} S2E tokens before publishing.
+                    Make sure to fund your survey with {estimatedCost} LSK tokens before publishing.
                   </p>
                 )}
               </CardContent>

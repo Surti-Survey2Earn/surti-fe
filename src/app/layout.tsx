@@ -23,7 +23,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${geist.variable}`}>
-      <body >
+      <body suppressHydrationWarning>
         <Providers>
           <HeroHeader />
           {children}
