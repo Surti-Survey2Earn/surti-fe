@@ -47,8 +47,9 @@ const GradientButton = ({ children, onClick, variant = 'outline' }: {
 }) => (
   <Button
     onClick={onClick}
+    type="button"
     variant={variant}
-    className={`${buttonBaseStyles} flex items-center gap-2`}
+    className={`${buttonBaseStyles} flex items-center gap-2 cursor-pointer`}
   >
     {children}
   </Button>
@@ -71,6 +72,8 @@ export function ConnectButton() {
       1: "https://etherscan.io", // Ethereum Mainnet
       11155111: "https://sepolia.etherscan.io", // Ethereum Sepolia
       4202: "https://sepolia-blockscout.lisk.com", // Lisk Sepolia
+      8453: "https://basescan.org", // Base Mainnet
+      84532: "https://sepolia.basescan.org", // Base Sepolia
     }
 
     const baseUrl = explorerUrls[chainId || 0]
@@ -124,9 +127,14 @@ export function ConnectButton() {
 
               if (chain.unsupported) {
                 return (
-                  <GradientButton onClick={openChainModal} variant="default">
+                  <Button
+                    onClick={openChainModal}
+                    type="button"
+                    variant="destructive"
+                    className="rounded-full cursor-pointer"
+                  >
                     Wrong network
-                  </GradientButton>
+                  </Button>
                 );
               }
 
@@ -135,7 +143,12 @@ export function ConnectButton() {
                   {/* Chain Button with Dropdown Menu */}
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <GradientButton>
+                      <Button
+                        variant="outline"
+                        type="button"
+                        onClick={openChainModal}
+                        className={`${buttonBaseStyles} flex items-center gap-2 cursor-pointer`}
+                      >
                         {chain.hasIcon && (
                           <div className='min-w-5'>
                             <ChainIcon
@@ -145,33 +158,19 @@ export function ConnectButton() {
                             />
                           </div>
                         )}
-                        <span className='max-w-32 truncate'>
-                          {chain.name}
-                        </span>
-                      </GradientButton>
+                      </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end" className="w-56">
-                      <div className="px-2 py-1.5">
-                        <div className="font-semibold text-sm">Network</div>
-                        <div className="text-xs text-muted-foreground mt-1">
-                          {chain.name} (Chain ID: {chain.id})
-                        </div>
-                      </div>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem
-                        onClick={openChainModal}
-                        className="flex items-center gap-2"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        <span className="text-sm">Switch Network</span>
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
+                        
                   </DropdownMenu>
 
                   {/* Account Button with Dropdown Menu */}
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <GradientButton>
+                      <Button
+                        variant="outline"
+                        type="button"
+                        className={`${buttonBaseStyles} flex items-center gap-2 cursor-pointer`}
+                      >
                         <div className="w-2 h-2 bg-green-500 rounded-full" />
                         <span className="max-w-32 truncate">
                           {account.displayName}
@@ -181,7 +180,7 @@ export function ConnectButton() {
                             {account.displayBalance}
                           </span>
                         )}
-                      </GradientButton>
+                      </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-56">
                       <div className="px-2 py-1.5">
@@ -192,14 +191,19 @@ export function ConnectButton() {
                         <div className="font-mono text-xs sm:text-sm mt-1">
                           {account.displayName}
                         </div>
-                        <div className="text-xs text-muted-foreground mt-1">
-                          {chain.name}
-                        </div>
+                        {chain.id && (
+                          <div className="text-xs text-muted-foreground mt-1">
+                            <div className="text-xs text-muted-foreground mt-1">
+                              {chain.name} (Chain ID: {chain.id})
+                            </div>
+                          </div>
+                        )}
                         {account.displayBalance && (
                           <div className="text-xs text-muted-foreground mt-1">
                             Balance: {account.displayBalance}
                           </div>
                         )}
+
                       </div>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem
