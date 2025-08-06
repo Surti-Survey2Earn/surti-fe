@@ -2,10 +2,10 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ConnectButton } from "@/components/connect-button"
+import { ConnectButton } from "@/components/wallet/connect-button"
 import { MobileNav } from "@/components/mobile-nav"
 import { useRouter } from "next/navigation"
-import { HeroHeader } from "../../components/header"
+import { HeroHeader } from "./_components/header"
 import {
     Coins,
     Shield,
@@ -21,8 +21,8 @@ import {
     Plus,
 } from "lucide-react"
 import StatsSection from "@/components/stats"
-import HeroSection from "@/components/hero-section"
-import HowItWorks from "@/components/how-it-works"
+import HeroSection from "@/app/home/_components/hero-section"
+import HowItWorks from "@/app/home/_components/how-it-works"
 
 export default function Home() {
 

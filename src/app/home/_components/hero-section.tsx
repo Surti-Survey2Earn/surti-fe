@@ -3,12 +3,13 @@ import React from "react"
 import { InfiniteSlider } from "@/components/ui/infinite-slider"
 import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ConnectButton } from "@/components/connect-button"
+import { ConnectButton } from "@/components/wallet/connect-button"
 import Link from "next/link"
-import AnimatedBackground from "./animated-background"
+import AnimatedBackground from "../../../components/animated-background"
 import { Badge } from "@/components/ui/badge"
 import { useAccount } from "wagmi"
 import { motion } from "framer-motion"
+import Connect from "@/components/wallet/connect"
 
 const fadeUp = {
     initial: { opacity: 0, y: 20 },
@@ -39,7 +40,7 @@ export default function HeroSection() {
                                     <h1 className="-mt-2 max-w-2xl text-balance text-5xl md:text-6xl xl:text-7xl">
                                         <span style={{ color: "#003049" }}>Earn</span> While{" "}
                                         <span style={{ color: "#003049" }}>You</span> Share{" "}
-                                        <span style={{ color: "#003049" }}>You</span>r Opinion.
+                                        <span style={{ color: "#003049" }}>Your</span> Opinion.
                                     </h1>
                                     <p className="mt-6 max-w-2xl text-balance text-lg">
                                         Join the first Web3 survey platform where your insights are
@@ -80,6 +81,7 @@ export default function HeroSection() {
                                     </motion.div>
                                 ) : (
                                     <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
+                                        {/* <Connect /> */}
                                         <ConnectButton />
                                         <p className="text-sm text-gray-500 text-center">
                                             Connect your wallet to get started

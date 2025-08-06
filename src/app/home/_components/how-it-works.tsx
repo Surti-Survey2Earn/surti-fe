@@ -81,7 +81,7 @@ export default function HowItWorks() {
                                 <div>
                                     <h4 className="font-semibold mb-2">Earn Rewards</h4>
                                     <p className="text-gray-600 dark:text-gray-300">
-                                        Receive S2E tokens and NFT certificates instantly upon completion. Build your reputation for
+                                        Receive LSK tokens and NFT certificates instantly upon completion. Build your reputation for
                                         higher rewards.
                                     </p>
                                 </div>
@@ -119,7 +119,7 @@ export default function HowItWorks() {
                                     </div>
                                     <div>
                                         <div className="font-medium">Rewards Earned</div>
-                                        <div className="text-sm text-gray-500">50 S2E + NFT Certificate</div>
+                                        <div className="text-sm text-gray-500">50 LSK + NFT Certificate</div>
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +149,7 @@ export default function HowItWorks() {
                                     </div>
                                     <div>
                                         <div className="font-medium">Tokens Deposited</div>
-                                        <div className="text-sm text-gray-500">5,000 S2E for rewards</div>
+                                        <div className="text-sm text-gray-500">5,000 LSK for rewards</div>
                                     </div>
                                 </div>
 
@@ -195,7 +195,7 @@ export default function HowItWorks() {
                                 <div>
                                     <h4 className="font-semibold mb-2">Set Rewards & Fund</h4>
                                     <p className="text-gray-600 dark:text-gray-300">
-                                        Determine reward amounts per response and deposit S2E tokens to fund your survey campaign.
+                                        Determine reward amounts per response and deposit LSK tokens to fund your survey campaign.
                                     </p>
                                 </div>
                             </div>

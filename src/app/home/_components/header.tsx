@@ -6,7 +6,9 @@ import { Button } from '@/components/ui/button'
 import React from 'react'
 import { useScroll, motion } from 'motion/react'
 import { cn } from '@/lib/utils'
-import { ConnectButton } from './connect-button'
+import { ConnectButton } from '../../../components/wallet/connect-button'
+import Connect from "@/components/wallet/connect"
+
 
 const menuItems = [
     { name: 'Home', href: '/home' },
@@ -82,6 +84,7 @@ export const HeroHeader = () => {
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                                 <ConnectButton />
+                                {/* <Connect /> */}
                             </div>
                         </div>
                     </motion.div>

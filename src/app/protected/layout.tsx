@@ -1,6 +1,6 @@
 "use client";
 
-import Providers from "@/components/provider/rainbow-provider";
+import Providers from "@/components/wallet/rainbow-provider";
 
 export default function Web3Layout({
     children,

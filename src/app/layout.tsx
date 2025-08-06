@@ -2,8 +2,8 @@ import "@rainbow-me/rainbowkit/styles.css";
 import "@/styles/globals.css";
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
-import Providers from "../components/provider/rainbow-provider";
-import { HeroHeader } from "@/components/header";
+import Providers from "../components/wallet/rainbow-provider";
+import { HeroHeader } from "@/app/home/_components/header";
 
 export const metadata: Metadata = {
   title: "Surti - Survey2Earn",
@@ -22,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${geist.variable}`}>
       <body suppressHydrationWarning>
-          <Providers>
-            <HeroHeader />
-            {children}
-          </Providers>
+        <Providers>
+          <HeroHeader />
+          {children}
+        </Providers>
       </body>
     </html>
   );
